@@ -1,12 +1,48 @@
-import React, { Component } from "react";
+import React, {Component} from 'react';
 
 export default class Task1 extends Component {
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
+    this.state = {
+      error: null,
+      isLoaded: false,
+      items: [],
+    };
+  }
+  componentDidMount() {
+    fetch('http//api.example.com/items')
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          this.setState({
+            isLoaded: true,
+            items: result,
+          });
+        },
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error,
+          });
+        }
+      );
+  }
 
-        this.state = {
-            list: null
-        };
+  render() {
+    // if (this.state.list === null) {
+    if (this.state.isLoading) {
+      return <p>Loading...</p>;
     }
-
+    return (
+      <div>
+        {this.state.list.map((item) => {
+          <div key={itemm.id}>
+            id - {item.id}
+            name - {item.name}
+            note - {item.note}
+          </div>;
+        })}
+      </div>
+    );
+  }
 }
