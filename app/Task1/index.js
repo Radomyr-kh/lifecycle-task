@@ -6,11 +6,11 @@ export default class Task1 extends Component {
     this.state = {
       list: null,
       isLoaded: false,
-      // items: [],
     };
   }
   componentDidMount() {
     // this.sw
+    this.setState({isLoader: true});
     fetch('http://localhost:3000/list', {method: 'GET'})
       .then((res) => res.json())
       .then((result) => {
