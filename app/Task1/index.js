@@ -31,7 +31,7 @@ export default class Task1 extends Component {
       <>
         {this.state.loader ? (
           <div className={'border'}>
-            <span>Loading...</span>;
+            <span>Loading...</span>
           </div>
         ) : (
           <div className={'row'}>
