@@ -5,7 +5,7 @@ export default class Task1 extends Component {
     super(props);
     this.state = {
       list: null,
-      isLoaded: false,
+      loader: false,
     };
   }
   componentDidMount() {
@@ -19,7 +19,7 @@ export default class Task1 extends Component {
         });
       })
       .finally(() => {
-        this.setState({isLoaded: false});
+        this.setState({loader: false});
       })
       .catch((error) => {
         console.log(error);
@@ -29,12 +29,12 @@ export default class Task1 extends Component {
   render() {
     return (
       <>
-        {this.state.isLoaded ? (
+        {this.state.loader ? (
           <div className={'border'}>
             <span>Loading...</span>;
           </div>
         ) : (
-          <div className='row'>
+          <div className={'row'}>
             {this.state.list &&
               this.state.list.map((item) => {
                 return (
