@@ -2,7 +2,8 @@
 
 ## Task1
 
-Create a component in ./app/Task1/index.js. It should send a request to the backend using `Fetch API` and then render the received data (Look at ./server/index.js for the list to use in the task).
+Create a component in ./app/Task1/index.js.  
+It should send a request to the backend using `Fetch API` and then render the received data (Look at ./server/index.js for the list to use in the task).
 
 ![](screenshots/Screenshot1.png)
 
