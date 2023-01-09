@@ -3,22 +3,24 @@ import React, {Component} from 'react';
 export default class Task1 extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       list: null,
-      loader: false,
+      loading: false,
     };
   }
+
   componentDidMount() {
-    this.setState({loader: true});
-    fetch('http://localhost:3000/list', {method: 'GET'})
+    this.setState({loading: true});
+    fetch('http://localhost:3000/list')
       .then((res) => res.json())
-      .then((result) => {
+      .then((data) => {
         this.setState({
-          list: result,
+          list: data,
         });
       })
       .finally(() => {
-        this.setState({loader: false});
+        this.setState({loading: false});
       })
       .catch((error) => {
         console.log(error);
@@ -28,19 +30,19 @@ export default class Task1 extends Component {
   render() {
     return (
       <>
-        {this.state.loader ? (
-          <div className={'border'}>
+        {this.state.loading ? (
+          <div className='row border'>
             <span>Loading...</span>
           </div>
         ) : (
           <div className={'row'}>
             {this.state.list &&
-              this.state.list.map((item) => {
+              this.state.list.map(({id, name, note}) => {
                 return (
-                  <div className={'col-3 col border'} key={item.id}>
-                    <p>id - {item.id}</p>
-                    <p>name - {item.name}</p>
-                    <p>note - {item.note}</p>
+                  <div key={id} id={id} className={'col col-2 col-3 border'}>
+                    <p>id - {id}</p>
+                    <p>name - {name}</p>
+                    <p>note - {note}</p>
                   </div>
                 );
               })}
