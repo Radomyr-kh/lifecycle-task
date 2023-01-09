@@ -2,11 +2,11 @@
 
 ## Task1
 
-Create component in ./app/Task1/index.js. It should send request to backend using `Fetch API` and then render "block#1" with received data (Look at ./server/index.js! You can find some list to use in the task).
+Create a component in ./app/Task1/index.js. It should send a request to the backend using `Fetch API` and then render the received data (Look at ./server/index.js for the list to use in the task).
 
 ![](screenshots/Screenshot1.png)
 
-Component should show "block#2" while waiting response.
+The component should show "Loading..." while waiting for the response.
 ![](screenshots/Screenshot2.png)
 
 1. Install dependencies
