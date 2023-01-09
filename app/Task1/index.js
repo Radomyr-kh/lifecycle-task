@@ -9,7 +9,6 @@ export default class Task1 extends Component {
     };
   }
   componentDidMount() {
-    // this.sw
     this.setState({loader: true});
     fetch('http://localhost:3000/list', {method: 'GET'})
       .then((res) => res.json())
